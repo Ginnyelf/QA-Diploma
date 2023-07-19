@@ -4,9 +4,8 @@ ___
 
 ### Документация по проекту
 
-1. [План тестирования](https://github.com/Artpogorelov/Diplom-QA-45/blob/main/Plan.md)
-2. [Отчет по итогам автоматизированного тестирования](https://github.com/Artpogorelov/Diplom-QA-45/blob/main/Report.md)
-3. [Отчет по итогам автоматизации](https://github.com/Artpogorelov/Diplom-QA-45/blob/main/Summary.md)
+1. [План тестирования](https://github.com/Ginnyelf/QA-Diploma/blob/main/Plan.md)
+
 
 ### Запуск приложения
 
@@ -14,7 +13,7 @@ ___
 * IntelliJ IDEA
 * Docker
 
-* склонировать репозиторий на свой ПК командой ```git clone https://github.com/Artpogorelov/Diplom-QA-45```
+* склонировать репозиторий на свой ПК командой ```git clone https://github.com/Ginnyelf/QA-Diploma```
 * В терминале IntelliJ IDEA с помощью команды ```docker-compose up```  разворачиваем контейнер, необходимый для дальнейшей работы (настройки для запуска контейнера 
 
 В новой вкладке терминала запустить тестируемое приложение:
