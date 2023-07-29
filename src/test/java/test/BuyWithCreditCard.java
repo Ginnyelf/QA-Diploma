@@ -45,8 +45,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.expectApprovalFromBank();
         var expected = DataHelper.getFirstCardExpectedStatus();
         var actual = DataBaseHelper.getStatusPaymentWithCredit();
@@ -60,8 +60,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.expectRejectionFromBank();
         var expected = DataHelper.getSecondCardExpectedStatus();
         var actual = DataBaseHelper.getStatusPaymentWithCredit();
@@ -69,68 +69,68 @@ public class BuyWithCreditCard {
     }
 
     @Test
-    void сheckingIncompleteData() { /*Покупка тура при вводе неполных данных*/
+    void checkingIncompleteData() { /*Покупка тура при вводе неполных данных*/
         var cardNumber = DataHelper.getCardNumberIncomplete();
         var month = DataHelper.getIncompleteMonth();
         var year = DataHelper.getIncompleteYear();
         var owner = DataHelper.getIncompleteOwner();
-        var cvс = DataHelper.getIncompleteCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getIncompleteCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitNecessaryFillOutField();
     }
 
     @Test
-    void сheckingСardNumberRequestedData() { /*Покупка тура при вводе одинаковых цифр номера карты*/
+    void checkingCardNumberRequestedData() { /*Покупка тура при вводе одинаковых цифр номера карты*/
         var cardNumber = DataHelper.getCardNumberRequestedData();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.expectRejectionFromBank();
     }
 
     @Test
-    void сheckingСardNumberZero() { /*Покупка тура при вводе нулей в поле номер карты */
+    void checkingCardNumberZero() { /*Покупка тура при вводе нулей в поле номер карты */
         var cardNumber = DataHelper.getCardNumberZero();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
     @Test
-    void сheckingСardNumberUnderLimit() { /*Покупка тура при вводе 4 цифр в поле номер карты */
+    void checkingCardNumberUnderLimit() { /*Покупка тура при вводе 4 цифр в поле номер карты */
         var cardNumber = DataHelper.getCardNumberUnderLimit();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
     @Test
-    void сheckingСardNumberOverLimit() { /*Покупка тура при вводе 17 цифр в поле номер карты */
+    void checkingCardNumberOverLimit() { /*Покупка тура при вводе 17 цифр в поле номер карты */
         var cardNumber = DataHelper.getCardNumberOverLimit();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.expectApprovalFromBank();
     }
 
     @Test
-    void сheckingСardWithText() { /*Покупка тура при вводе текста в поле номер карты */
+    void checkingCardWithText() { /*Покупка тура при вводе текста в поле номер карты */
         var cardNumber = DataHelper.getValueText();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -140,8 +140,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getInvalidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidDuration();
     }
 
@@ -151,8 +151,8 @@ public class BuyWithCreditCard {
         var month = DataHelper. getValueText();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -162,8 +162,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getDurationOverLimit();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidDuration();
     }
 
@@ -173,8 +173,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getZeroValue();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -185,8 +185,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getPastMonth();
         var year = DataHelper.getThisYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidDuration();
     }
 
@@ -196,8 +196,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getInvalidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidYear();
     }
 
@@ -207,8 +207,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getZeroValue();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -218,8 +218,8 @@ public class BuyWithCreditCard {
         var month = DataHelper. getValidMonth();
         var year = DataHelper.getValueText();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -229,30 +229,30 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getDurationOverLimit();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
     @Test
-    void сheckingOwnerUnderLimit() { /*Покупка тура при вводе одной буквы в поле владельца*/
+    void checkingOwnerUnderLimit() { /*Покупка тура при вводе одной буквы в поле владельца*/
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getUnderLimitOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
     @Test
-    void сheckingOwnerOverLimit() { /*Покупка тура при вводе 20 букв слитно в поле владельца*/
+    void checkingOwnerOverLimit() { /*Покупка тура при вводе 20 букв слитно в поле владельца*/
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getOverLimitOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -262,8 +262,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getDataWithoutSpaces();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -273,8 +273,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getOwnerNumbers();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -284,19 +284,19 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getInvalidOwnerRus();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
     @Test
-    void сheckingOwnerOnlySurname() { /*Покупка тура при вводе только фамилии в поле владельца*/
+    void checkingOwnerOnlySurname() { /*Покупка тура при вводе только фамилии в поле владельца*/
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getOwnerOnlySurname();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -306,8 +306,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getOwnerLowerCase();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -317,19 +317,19 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getInvalidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
     @Test
-    void shouldRejectInvalidCvс() { /*Покупка тура при вводе невалидного cvc*/
+    void shouldRejectInvalidCvc() { /*Покупка тура при вводе невалидного cvc*/
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getInvalidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getInvalidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -339,8 +339,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getZeroCvv();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getZeroCvv();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -350,8 +350,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getCvcOverLimit();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getCvcOverLimit();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -361,8 +361,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValueText();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValueText();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitInvalidFormat();
     }
 
@@ -372,8 +372,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitNecessaryFillOutField();
     }
 
@@ -383,8 +383,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getEmptyValue();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitNecessaryFillOutField();
     }
 
@@ -394,19 +394,19 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getEmptyValue();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitNecessaryFillOutField();
     }
 
     @Test
-    void shouldRejectEmptyCvс() { /*Покупка тура при отсутствии ввода cvc*/
+    void shouldRejectEmptyCvc() { /*Покупка тура при отсутствии ввода cvc*/
         var cardNumber = DataHelper.getFirstCardNumber();
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getValidOwner();
-        var cvс = DataHelper.getEmptyValue();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getEmptyValue();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitNecessaryFillOutField();
     }
 
@@ -416,8 +416,8 @@ public class BuyWithCreditCard {
         var month = DataHelper.getValidMonth();
         var year = DataHelper.getValidYear();
         var owner = DataHelper.getEmptyValue();
-        var cvс = DataHelper.getValidCvс();
-        creditPage.fillOutFields(cardNumber, month, year, owner, cvс);
+        var cvc = DataHelper.getValidCvc();
+        creditPage.fillOutFields(cardNumber, month, year, owner, cvc);
         creditPage.waitNecessaryFillOutField();
     }
 

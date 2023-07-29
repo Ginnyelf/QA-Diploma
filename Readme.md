@@ -19,23 +19,23 @@ ___
 В новой вкладке терминала запустить тестируемое приложение:
    * Для MySQL: 
    ```
-    java -jar ./artifacts/aqa-shop.jar -spring.datasource.url=jdbc:mysql://192.168.99.100:3306/app
+    Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar
 
    ```
    * Для PostgreSQL: 
    ```
-    java -jar ./artifacts/aqa-shop.jar -spring.datasource.url=jdbc:postgresql://192.168.99.100:5432/app
+    java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar
   
   ```
    ### Запуск тестов
 В новой вкладке терминала запустить тесты:
 1. Для MySQL: 
    ```
-   ./gradlew clean test "-Ddb.url=jdbc:mysql://192.168.99.100:3306/app"
+   ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"
    ```
 1. Для PostgreSQL: 
  ```
-   ./gradlew clean test "-Ddb.url=jdbc:postgresql://192.168.99.100:5432/app"
+   ./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"
    ```
   
 * запустить отчет командой:

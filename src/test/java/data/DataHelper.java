@@ -36,7 +36,7 @@ public class DataHelper {
         return "0000 0000 0000 0000";
     }
 
-    public static String getCardNumberRequestedData() {
+    public static String getCardNumberNotExisting() {
         return "3333 3333 3333 3333";
     }
 
@@ -123,11 +123,11 @@ public class DataHelper {
         return " 12345";
     }
 
-    public static String getValidCvс() {
+    public static String getValidCvc() {
         return faker.numerify("###");
     }
 
-    public static String getInvalidCvс() {
+    public static String getInvalidCvc() {
         return faker.numerify("##");
     }
 
@@ -135,7 +135,7 @@ public class DataHelper {
         return "";
     }
 
-    public static String getIncompleteCvс() {
+    public static String getIncompleteCvc() {
         return "12";
     }
 

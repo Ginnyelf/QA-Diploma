@@ -1,8 +1,15 @@
 package data;
 
-import java.sql.SQLException;
+import lombok.Data;
+import lombok.SneakyThrows;
 
-import static java.sql.DriverManager.getConnection;
+import java.sql.Connection;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+
+import java.sql.DriverManager;
+
 
 public class DataBaseHelper {
     private static final String url = System.getProperty("db.url");
@@ -12,67 +19,44 @@ public class DataBaseHelper {
     private DataBaseHelper() {
     }
 
-    public static String getStatusPaymentWithoutCredit() {
-        var statusSql = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
 
-        try (
-                var connection = getConnection(url, user, password);
-                var statusStmt = connection.createStatement();
-        ) {
-            try (var rs = statusStmt.executeQuery(statusSql)) {
-                if (rs.next()) {
-                    var status = rs.getString(1);
+    @SneakyThrows
+    public static Payment getStatusPaymentWithoutCredit() {
+        String statusSql = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
+        QueryRunner runner = new QueryRunner();
+        Connection conn = getConnection();
+        return runner.query(conn, statusSql, new BeanHandler<>(Payment.class));
 
-                    return status;
-                }
-                return null;
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-        return null;
     }
 
-    public static String getStatusPaymentWithCredit() {
+    @SneakyThrows
+    public static Credit getStatusPaymentWithCredit() {
         var statusSql = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
+        QueryRunner runner = new QueryRunner();
+        Connection conn = getConnection();
+        return runner.query(conn, statusSql, new BeanHandler<>(Credit.class));
 
-        try (
-                var connection = getConnection(url, user, password);
-                var statusStmt = connection.createStatement();
-        ) {
-            try (var rs = statusStmt.executeQuery(statusSql)) {
-                if (rs.next()) {
-                    var status = rs.getString(1);
-
-                    return status;
-                }
-                return null;
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-        return null;
     }
 
+    @SneakyThrows
+    private static Connection getConnection() {
+        return DriverManager.getConnection(
+                url, user, password
+        );
+    }
+
+    @SneakyThrows
     public static void cleanDataBase() {
 
         var pays = "DELETE FROM payment_entity";
         var credits = "DELETE FROM credit_request_entity";
         var orders = "DELETE FROM order_entity";
+        QueryRunner runner = new QueryRunner();
+        Connection conn = getConnection();
+        runner.execute(conn, pays);
+        runner.execute(conn, credits);
+        runner.execute(conn, orders);
 
-        try (
-                var connection = getConnection(url, user, password);
-                var prepareStatPay = connection.createStatement();
-                var prepareStatCredit = connection.createStatement();
-                var prepareStatOrder = connection.createStatement();
 
-        ) {
-            prepareStatPay.executeUpdate(pays);
-            prepareStatCredit.executeUpdate(credits);
-            prepareStatOrder.executeUpdate(orders);
-
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
     }
 }
