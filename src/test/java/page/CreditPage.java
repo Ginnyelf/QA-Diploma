@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class CreditPage {
     private SelenideElement fieldCardNumber = $("[placeholder='0000 0000 0000 0000']");
-    private SelenideElement cardSize = $("[maxlength='19']");
+    private SelenideElement cardSize = $("[maxLength='19']");
     private SelenideElement fieldMonth = $("[placeholder='08']");
     private SelenideElement fieldYear = $("[placeholder='22']");
     private SelenideElement fieldOwner = $$("[class='input__control']").get(3);
