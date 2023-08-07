@@ -8,6 +8,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.jupiter.api.Assertions;
+
 import java.sql.DriverManager;
 
 
@@ -15,9 +16,6 @@ public class DataBaseHelper {
     private static final String url = System.getProperty("db.url");
     private static final String user = System.getProperty("db.user");
     private static final String password = System.getProperty("db.password");
-
-    private DataBaseHelper() {
-    }
 
 
     @SneakyThrows
@@ -59,6 +57,7 @@ public class DataBaseHelper {
 
 
     }
+
     @SneakyThrows
     public static void assertDbEmpty() {
         String sql = "Select count(*) from credit_request_entity;";
