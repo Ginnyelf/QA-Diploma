@@ -4,10 +4,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import data.DataBaseHelper;
 import data.DataHelper;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import page.MainPage;
 import page.PaymentPage;
 
@@ -61,7 +58,7 @@ public class BuyWithCardCheckFieldNumberCard {
         paymentPage.expectRejectionFromBank();
         var expected = DataHelper.getSecondCardExpectedStatus();
         var actual = DataBaseHelper.getStatusPaymentWithoutCredit();
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected,actual);
     }
 
     @Test
