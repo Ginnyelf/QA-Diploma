@@ -9,7 +9,7 @@
 
 #### Отчет Alure:
 
-![Screenshot_1](.png)
+![Screenshot_1](https://github.com/Ginnyelf/QA-Diploma/blob/main/Allure.PNG.png)
 
 
 ### Общие рекомендации
