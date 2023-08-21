@@ -5,6 +5,8 @@ ___
 ### Документация по проекту
 
 1. [План тестирования](https://github.com/Ginnyelf/QA-Diploma/blob/main/Plan.md)
+2. [Отчёт по итогам тестирования](https://github.com/Ginnyelf/QA-Diploma/blob/main/Report.md)
+3. [Отчёт по итогам автоматизации](https://github.com/Ginnyelf/QA-Diploma/blob/main/Summary.md)
 
 
 ### Запуск приложения
