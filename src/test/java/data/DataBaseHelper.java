@@ -20,23 +20,12 @@ public class DataBaseHelper {
     private static final String password = System.getProperty("db.password");
 
 
-    @Data
-    public static class Payment {
-         String login;
-         String password;
-    }
-
-    @Data
-    public static class  Credit {
-         String status;
-    }
-
     @SneakyThrows
     public static String getStatusPaymentWithoutCredit() {
         String statusSql = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
         QueryRunner runner = new QueryRunner();
         Connection conn = getConnection();
-        return String.valueOf(runner.query(conn, statusSql, new BeanHandler<>(Payment.class)));
+        return (runner.query(conn, statusSql, new ScalarHandler<>()));
 
     }
 
@@ -45,7 +34,7 @@ public class DataBaseHelper {
         var statusSql = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
         QueryRunner runner = new QueryRunner();
         Connection conn = getConnection();
-        return String.valueOf(runner.query(conn, statusSql, new BeanHandler<>(Credit.class)));
+        return (runner.query(conn, statusSql, new ScalarHandler<>()));
 
     }
 
