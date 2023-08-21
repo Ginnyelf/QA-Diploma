@@ -1,15 +1,17 @@
 package data;
 
+
+import lombok.Data;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
-
+import java.sql.DriverManager;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.jupiter.api.Assertions;
 
-import java.sql.DriverManager;
+
 
 
 public class DataBaseHelper {
@@ -18,21 +20,32 @@ public class DataBaseHelper {
     private static final String password = System.getProperty("db.password");
 
 
+    @Data
+    public static class Payment {
+         String login;
+         String password;
+    }
+
+    @Data
+    public static class  Credit {
+         String status;
+    }
+
     @SneakyThrows
-    public static Payment getStatusPaymentWithoutCredit() {
+    public static String getStatusPaymentWithoutCredit() {
         String statusSql = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
         QueryRunner runner = new QueryRunner();
         Connection conn = getConnection();
-        return runner.query(conn, statusSql, new BeanHandler<>(Payment.class));
+        return String.valueOf(runner.query(conn, statusSql, new BeanHandler<>(Payment.class)));
 
     }
 
     @SneakyThrows
-    public static Credit getStatusPaymentWithCredit() {
+    public static String getStatusPaymentWithCredit() {
         var statusSql = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
         QueryRunner runner = new QueryRunner();
         Connection conn = getConnection();
-        return runner.query(conn, statusSql, new BeanHandler<>(Credit.class));
+        return String.valueOf(runner.query(conn, statusSql, new BeanHandler<>(Credit.class)));
 
     }
 
