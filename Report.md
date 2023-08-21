@@ -1,15 +1,15 @@
 # Отчёт по итогам тестирования
 
 ### Количество тест-кейсов
-Всего выполнено 60 автоматизированных тест-кейсов
+Всего выполнено 69 автоматизированных тест-кейсов
 
 ### %успешных/не успешных
-* 24 успешных 
-* 36 не успешных 
+* 30 успешных 
+* 39 не успешных 
 
 #### Отчет Alure:
 
-![Screenshot_1](https://github.com/Ginnyelf/QA-Diploma/blob/main/Allure.PNG)
+![Screenshot_1](https://raw.githubusercontent.com/Ginnyelf/QA-Diploma/main/allure%202.PNG)
 
 
 ### Общие рекомендации
